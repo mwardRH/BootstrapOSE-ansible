@@ -1,0 +1,33 @@
+---
+- hosts: delete
+  vars:
+    username: "{{ lookup('env','USERNAME' }}"
+    password: "{{ lookup('env','PASSWORD' }}"
+  remote_user: root
+  tasks:
+  - name: register system
+    redhat_subscription: state=present username={{ username }} password={{ password }} autosubscribe=true
+
+  - name: disable repos
+    raw: subscription-manager repos --disable=*
+
+  - name: enable OSE repos
+    raw: subscription-manager repos --enable="rhel-7-server-rpms" --enable="rhel-7-server-extras-rpms" --enable="rhel-7-server-ose-3.3-rpms"
+
+  - name: install dependencies
+    yum: name={{item}} state=present
+    with_items:
+    - wget
+    - git
+    - net-tools
+    - bind-utils
+    - iptables-services
+    - bridge-utils 
+    - bash-completion
+
+  - name: update all packages
+    yum: name=* state=latest
+
+  - name: install OSE installer
+    yum: name=atomic-openshift-utils state=present
+
