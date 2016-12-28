@@ -1,8 +1,8 @@
 ---
 - hosts: delete
   vars:
-    username: "{{ lookup('env','USERNAME' }}"
-    password: "{{ lookup('env','PASSWORD' }}"
+    username: "{{ lookup('env','RHUSERNAME' }}"
+    password: "{{ lookup('env','RHPASSWORD' }}"
   remote_user: root
   tasks:
   - name: register system
