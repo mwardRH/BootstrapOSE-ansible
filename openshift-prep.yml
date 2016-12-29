@@ -1,5 +1,5 @@
 ---
-- hosts: delete
+- hosts: common
   vars:
     username: "{{ lookup('env','RHUSERNAME' }}"
     password: "{{ lookup('env','RHPASSWORD' }}"
