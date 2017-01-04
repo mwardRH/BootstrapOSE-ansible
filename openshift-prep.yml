@@ -1,8 +1,16 @@
 ---
 - hosts: common
   vars:
-    username: "{{ lookup('env','RHUSERNAME' }}"
-    password: "{{ lookup('env','RHPASSWORD' }}"
+
+  vars_prompt:
+    - name: "username"
+      prompt: "Enter your Red Hat username: "
+      private: no
+
+    - name: "password" 
+      prompt: "Enter your Red Hat password: " 
+      private: yes
+
   remote_user: root
   tasks:
   - name: register system
