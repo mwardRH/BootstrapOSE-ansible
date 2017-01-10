@@ -1,4 +1,4 @@
-# OpenShift Enterprise Prep Playbook
+# OpenShift Enterprise Bootstrap Playbook
 WORKING: This playbook is used to prep a system making it ready for the install of Red Hat OpenShift Enterprise Edition.
 
 ## REQUIREMENTS
