@@ -33,8 +33,9 @@
     - bridge-utils 
     - bash-completion
 
-  - name: update all packages
+  - name: update all packages, this may take a while.
     yum: name=* state=latest
+    register: out
 
   - name: install OSE installer
     yum: name=atomic-openshift-utils state=present
