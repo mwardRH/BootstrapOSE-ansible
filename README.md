@@ -8,9 +8,9 @@ I recommend having Ansible configured and tested before using this playbook.
 You must enter your host machines into the hosts file under [COMMON]. 
 
 ## Usage
-'''
+```
 ansible-playbook -i hosts openshift-prep.yml
-'''
+```
 
 ## To Do for this playbook
 - Create update hosts file
